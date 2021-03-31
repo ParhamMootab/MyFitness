@@ -27,4 +27,6 @@
     <string name="txtViewTitle">Fight Like a Warrior</string>
     <string name="imgViewLarge">It changes according to imges you select on the gridView</string>
     <string name="btnChooseTheBodyPart">Click Here to go to the specific exercises of choosen body parts</string>
+    <string name="txtViewPressOnExercise">Press on The Exercise you want to workout</string>
+    <string name="imgViewExercisesMenu" />
 </resources>
