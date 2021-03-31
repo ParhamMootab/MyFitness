@@ -22,4 +22,9 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="startBtn">Sign in</string>
     <string name="toolbar_Text">MyFitness</string>
+    <string name="imgWorkoutWelcomepage">Motivation picture</string>
+    <string name="btnBeginWorkOut">Click Here to Start Working Out</string>
+    <string name="txtViewTitle">Fight Like a Warrior</string>
+    <string name="imgViewLarge">It changes according to imges you select on the gridView</string>
+    <string name="btnChooseTheBodyPart">Click Here to go to the specific exercises of choosen body parts</string>
 </resources>

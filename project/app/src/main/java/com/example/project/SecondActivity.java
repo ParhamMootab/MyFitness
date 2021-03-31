@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -28,20 +29,37 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        //find View by Id
         welcome = findViewById(R.id.txtViewWelcome);
         btnLogOut = findViewById(R.id.btnLogOut);
+        Button btnBeginWorkout = findViewById(R.id.btnBeginWorkout);
+        ImageView imgWorkoutWelcomePage = findViewById(R.id.imgWorkoutWelcomePage);
+
+
 
         String fullName = getIntent().getStringExtra("Name");
         if (fullName != null){
             welcome.setText("Welcome, " + fullName);
         }
 
+        //SignOut Button
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signOut();
             }
         });
+
+        //begin Button
+        btnBeginWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Start another activity (the exercise pages)
+                Intent myThirdActivity = new Intent(SecondActivity.this, ThirdActivity.class);
+                startActivity(myThirdActivity);
+            }
+        });
+
     }
 
     private void signOut() {

@@ -15,16 +15,39 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.079" />
 
     <Button
         android:id="@+id/btnLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/btnLogOut"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtViewWelcome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgWorkoutWelcomePage"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/imgWorkoutWelcomepage"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewWelcome" />
+        app:layout_constraintTop_toBottomOf="@+id/txtViewWelcome"
+        app:layout_constraintVertical_bias="0.246"
+        app:srcCompat="@drawable/spartiawarriors" />
+
+    <Button
+        android:id="@+id/btnBeginWorkout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnBeginWorkOut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgWorkoutWelcomePage" />
 </androidx.constraintlayout.widget.ConstraintLayout>
