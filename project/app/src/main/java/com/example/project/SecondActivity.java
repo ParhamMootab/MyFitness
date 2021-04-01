@@ -33,10 +33,8 @@ public class SecondActivity extends AppCompatActivity {
         welcome = findViewById(R.id.txtViewWelcome);
         btnLogOut = findViewById(R.id.btnLogOut);
         Button btnBeginWorkout = findViewById(R.id.btnBeginWorkout);
-        ImageView imgWorkoutWelcomePage = findViewById(R.id.imgWorkoutWelcomePage);
 
-
-
+        // get fullName of the user sent from MainActivity
         String fullName = getIntent().getStringExtra("Name");
         if (fullName != null){
             welcome.setText("Welcome, " + fullName);
@@ -79,7 +77,7 @@ public class SecondActivity extends AppCompatActivity {
                     });
         }
         else {
-            Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
     }

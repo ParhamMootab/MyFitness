@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     // update the UI if the user is already signed in
     private void updateUI(GoogleSignInAccount account) {
         if (account != null){
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
             intent.putExtra("Name", account.getGivenName());
             startActivity(intent);
         }
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         User user = helper.authenticate(new User(userName, password));
         if(user != null){
             Toast.makeText(getApplicationContext(), "Login successfully.",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
             intent.putExtra("Name", user.getFullName());
             startActivity(intent);
         } else {
