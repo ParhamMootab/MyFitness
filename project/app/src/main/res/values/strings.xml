@@ -29,4 +29,6 @@
     <string name="btnChooseTheBodyPart">Click Here to go to the specific exercises of choosen body parts</string>
     <string name="txtViewPressOnExercise">Press on The Exercise you want to workout</string>
     <string name="imgViewExercisesMenu" />
+    <string name="Workout_Tab">Workouts</string>
+    <string name="Diet_Tab">Diets</string>
 </resources>
