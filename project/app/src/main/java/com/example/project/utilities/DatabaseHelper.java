@@ -1,13 +1,13 @@
-package com.example.project;
+package com.example.project.utilities;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
+import com.example.project.model.User;
+
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {

@@ -1,10 +1,13 @@
-package com.example.project;
+package com.example.project.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+
+import com.example.project.R;
+import com.example.project.model.BodyPartsImage;
 
 import java.util.List;
 

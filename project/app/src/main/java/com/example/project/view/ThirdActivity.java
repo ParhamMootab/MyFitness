@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.project.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,10 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import com.example.project.model.BodyPartsImage;
+import com.example.project.adapters.BodyPartsImageAdapter;
+import com.example.project.R;
 
 import java.util.ArrayList;
 import java.util.List;
