@@ -1,10 +1,11 @@
-package com.example.project;
+package com.example.project.model;
 
-public class ExerciseImage {
+public class BodyPartsImage {
+
     String imgName;
     int imgPic;
 
-    public ExerciseImage(String imgName, int imgPic) {
+    public BodyPartsImage(String imgName, int imgPic){
         this.imgName = imgName;
         this.imgPic = imgPic;
     }

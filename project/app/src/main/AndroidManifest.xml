@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
-        <activity android:name=".FourthActivity"></activity>
-        <activity android:name=".ThirdActivity" />
+        <activity android:name=".view.FourthActivity"></activity>
+        <activity android:name=".view.ThirdActivity" />
         <activity
-            android:name=".BackgroundActivity"
+            android:name=".view.BackgroundActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/toolbar_Text"
             android:theme="@style/Theme.Project.Fullscreen">
@@ -22,10 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".SignUp" />
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".view.SearchActivity" />
+        <activity android:name=".view.SignUp" />
+        <activity android:name=".view.SecondActivity" />
+        <activity android:name=".view.MainActivity" />
     </application>
 
 </manifest>
