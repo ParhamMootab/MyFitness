@@ -12,6 +12,8 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    private static final String createDietTable =
+            "CREATE TABLE diet (dietId INTEGER PRIMARY KEY, date TEXT, time TEXT, diet_Name TEXT);";
 
     private static String tableName = "userTable";
     private static String columnID = "id";
@@ -32,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static String DeleteQuery = "DROP TABLE IF EXISTS " + tableName;
 
 
-    public static final String DATABASE_NAME = "MyDatabase.db";
+    public static final String DATABASE_NAME = "MyDatabase";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -40,7 +42,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DatabaseHelper.CreateQuery);
+
+        db.execSQL(CreateQuery);
+        db.execSQL(createDietTable);
+
     }
 
     @Override
@@ -48,6 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(DatabaseHelper.DeleteQuery);
         onCreate(db);
     }
+
 
     public void Register(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
