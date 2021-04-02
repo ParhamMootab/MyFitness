@@ -33,15 +33,15 @@
 
     <ImageView
         android:id="@+id/imgViewBodyPartLarge"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="300dp"
+        android:layout_height="245dp"
         android:contentDescription="@string/imgViewLarge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridViewBodyPartsGallery"
         app:layout_constraintVertical_bias="0.32999998"
-        app:srcCompat="@drawable/arm" />
+        app:srcCompat="@drawable/imgbodypartlargedefault" />
 
     <Button
         android:id="@+id/btnChooseTheBodyPart"

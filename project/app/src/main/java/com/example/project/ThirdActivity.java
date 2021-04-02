@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 public class ThirdActivity extends AppCompatActivity {
 
     List<BodyPartsImage> BodyPartsImageList = new ArrayList<>();
+    Toast currToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +46,13 @@ public class ThirdActivity extends AppCompatActivity {
         gridViewBodyPartsGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                imgViewBodyPartLarge.setImageResource(BodyPartsImageList.get(position).getImgPic());
-                imgViewBodyPartLarge.setTag(BodyPartsImageList.get(position).getImgPic());
+                try {
+                    imgViewBodyPartLarge.setImageResource(BodyPartsImageList.get(position).getImgPic());
+                    imgViewBodyPartLarge.setTag(BodyPartsImageList.get(position).getImgPic());
+                } catch (Exception exception){
+                    Log.d("MyFitness",exception.getMessage());
+                }
+
 
             }
         });
@@ -54,10 +61,9 @@ public class ThirdActivity extends AppCompatActivity {
         btnChooseTheBodyPart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                int imgViewBodyPartLargeDrawableID= (Integer)imgViewBodyPartLarge.getTag();
-
                 try {
+                    Bundle bundle = new Bundle();
+                    int imgViewBodyPartLargeDrawableID= (Integer)imgViewBodyPartLarge.getTag();
                     switch (imgViewBodyPartLargeDrawableID)
                     {
                         case R.drawable.abs:
@@ -94,6 +100,8 @@ public class ThirdActivity extends AppCompatActivity {
                     startActivity(myFourthActivity);
 
                 } catch (Exception exception){
+                    currToast= Toast.makeText(ThirdActivity.this, "Please press on the picture of body parts you want to work on!", Toast.LENGTH_SHORT);
+                    currToast.show();
                     Log.d("My Fitness",exception.getMessage());
                 }
 
