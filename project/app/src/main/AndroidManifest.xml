@@ -23,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.SearchActivity" />
         <activity android:name=".view.SignUp" />
         <activity android:name=".view.SecondActivity" />
         <activity android:name=".view.MainActivity" />
