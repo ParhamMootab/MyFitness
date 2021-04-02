@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.project.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.List;
+import com.example.project.utilities.DatabaseHelper;
+import com.example.project.R;
+import com.example.project.model.User;
 
 public class SignUp extends AppCompatActivity {
 

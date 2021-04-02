@@ -1,10 +1,14 @@
-package com.example.project;
+package com.example.project.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.GridView;
+
+import com.example.project.model.ExerciseImage;
+import com.example.project.adapters.ExerciseImageAdapter;
+import com.example.project.R;
 
 import java.util.ArrayList;
 import java.util.List;

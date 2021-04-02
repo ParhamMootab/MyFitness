@@ -29,6 +29,7 @@
     <string name="btnChooseTheBodyPart">Click Here to go to the specific exercises of choosen body parts</string>
     <string name="txtViewPressOnExercise">Press on The Exercise you want to workout</string>
     <string name="imgViewExercisesMenu" />
+<<<<<<< HEAD
     <string name="title_activity_navigation_drawer">NavigationDrawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -40,4 +41,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile Information</string>
     <string name="menu_workout">Workout plan</string>
+=======
+    <string name="Workout_Tab">Workouts</string>
+    <string name="Diet_Tab">Diets</string>
+>>>>>>> main
 </resources>
