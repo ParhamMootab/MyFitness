@@ -84,7 +84,9 @@ public class ThirdActivity extends AppCompatActivity {
                         case R.drawable.upperbody:
                             bundle.putInt("BodyPartKey", 7);
                             break;
-
+                        default:
+                            bundle.putInt("BodyPartKey", 1);
+                            break;
                     }
                     //start another activity with that body parts
                     Intent myFourthActivity = new Intent(ThirdActivity.this, FourthActivity.class);
