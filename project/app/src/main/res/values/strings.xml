@@ -4,7 +4,7 @@
     <string name="hintPassword">Password</string>
     <string name="txtLogin">Login</string>
     <string name="txtNoAttempts">"No. of Incorrect Attempts: "</string>
-    <string name="txtWelcome">"Welcome"</string>
+    <string name="txtWelcome">"Welcome to our app"</string>
     <string name="txtTitleLogin">Login</string>
     <string name="txtSignUp">New User? Sign up here.</string>
     <string name="btnTextSignUp">Sign up</string>
@@ -29,6 +29,20 @@
     <string name="btnChooseTheBodyPart">Click Here to go to the specific exercises of choosen body parts</string>
     <string name="txtViewPressOnExercise">Press on The Exercise you want to workout</string>
     <string name="imgViewExercisesMenu" />
+<<<<<<< HEAD
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">User\'s Full Name</string>
+    <string name="nav_header_subtitle">Member</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_logout">Sign Out</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile Information</string>
+    <string name="menu_workout">Workout plan</string>
+=======
     <string name="Workout_Tab">Workouts</string>
     <string name="Diet_Tab">Diets</string>
+>>>>>>> main
 </resources>

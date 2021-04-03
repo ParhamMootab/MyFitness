@@ -12,7 +12,11 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+
 import android.widget.TableLayout;
+
+import android.widget.Toast;
+
 
 import com.example.project.adapters.MealAdapter;
 import com.example.project.model.BodyPartsImage;
@@ -29,7 +33,11 @@ import java.util.List;
 public class ThirdActivity extends AppCompatActivity {
 
     List<BodyPartsImage> BodyPartsImageList = new ArrayList<>();
+
     List<Meal> meals = MealsArray.mealList();
+
+    Toast currToast;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +63,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
+
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 1){
                     gridViewBodyPartsGallery.setAdapter(new MealAdapter(meals));
@@ -74,6 +83,7 @@ public class ThirdActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
+
             }
         });
 
@@ -83,6 +93,7 @@ public class ThirdActivity extends AppCompatActivity {
         //Set on Click for the gridView to display the chosen picture
         gridViewBodyPartsGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
+
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();
                 try {
@@ -122,6 +133,42 @@ public class ThirdActivity extends AppCompatActivity {
                                 break;
 
                         }*/
+
+            public void onClick(View v) {
+                try {
+                    Bundle bundle = new Bundle();
+                    int imgViewBodyPartLargeDrawableID= (Integer)imgViewBodyPartLarge.getTag();
+                    switch (imgViewBodyPartLargeDrawableID)
+                    {
+                        case R.drawable.abs:
+                            bundle.putInt("BodyPartKey", 0);
+                            break;
+                        case R.drawable.arm:
+                            bundle.putInt("BodyPartKey", 1);
+                            break;
+                        case R.drawable.back:
+                            bundle.putInt("BodyPartKey", 2);
+                            break;
+                        case R.drawable.chest:
+                            bundle.putInt("BodyPartKey", 3);
+                            break;
+                        case R.drawable.leg:
+                            bundle.putInt("BodyPartKey", 4);
+                            break;
+                        case R.drawable.lower:
+                            bundle.putInt("BodyPartKey", 5);
+                            break;
+                        case R.drawable.shoulder:
+                            bundle.putInt("BodyPartKey", 6);
+                            break;
+                        case R.drawable.upperbody:
+                            bundle.putInt("BodyPartKey", 7);
+                            break;
+                        default:
+                            bundle.putInt("BodyPartKey", 1);
+                            break;
+                    }
+
                     //start another activity with that body parts
                     Intent myFourthActivity = new Intent(ThirdActivity.this, FourthActivity.class);
                     myFourthActivity.putExtras(bundle);
@@ -129,6 +176,8 @@ public class ThirdActivity extends AppCompatActivity {
                 }
 
                 } catch (Exception exception){
+                    currToast= Toast.makeText(ThirdActivity.this, "Please press on the picture of body parts you want to work on!", Toast.LENGTH_SHORT);
+                    currToast.show();
                     Log.d("My Fitness",exception.getMessage());
                 }
 
