@@ -38,14 +38,26 @@ public class FifthActivity extends AppCompatActivity {
         mediaController.setAnchorView(vidViewExercise);
 
         try {
+            Uri uri;
+            Spanned spanned;
             switch (exerciseDrawableId){
                 case R.drawable.cablekneelingcrunch:
                     //Uri link
-                    Uri uri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/myfitness-c3b29.appspot.com/o/cablekneelingcrunch.mp4?alt=media&token=c131a53a-5802-438e-9ef4-128af807725c");  //put the video url from firebase to here
+                    uri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/myfitness-c3b29.appspot.com/o/cablekneelingcrunch.mp4?alt=media&token=c131a53a-5802-438e-9ef4-128af807725c");  //put the video url from firebase to here
 
                     vidViewExercise.setVideoURI(uri);
 
-                    Spanned spanned = Html.fromHtml(getString(R.string.CableKneelingCrunch));
+                    spanned = Html.fromHtml(getString(R.string.CableKneelingCrunch));
+                    txtViewExerciseInstruction.setText(spanned);
+                    break;
+
+                case R.drawable.cabletwist:
+                    //Uri link
+                    uri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/myfitness-c3b29.appspot.com/o/ExRx.net%20-%20Cable%20Twist.mp4?alt=media&token=fd44c36d-2a85-426f-b76c-63220cc9fcfc");  //put the video url from firebase to here
+
+                    vidViewExercise.setVideoURI(uri);
+
+                    spanned = Html.fromHtml(getString(R.string.CableTwist));
                     txtViewExerciseInstruction.setText(spanned);
                     break;
 
