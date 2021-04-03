@@ -1,6 +1,7 @@
 package com.example.project;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,11 +28,18 @@ public class NavigationDrawer extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     GoogleSignInClient mGoogleSignInClient;
+    SharedPreferences sp;
+    private DatabaseHelper helper;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
+
+        sp = getSharedPreferences("login", MODE_PRIVATE);
+        helper = new DatabaseHelper(this);
+        user = helper.GetUser(sp.getInt("userId",0));
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -58,8 +66,11 @@ public class NavigationDrawer extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
 
         TextView userFullName = findViewById(R.id.userFullName);
-        String fullName = getIntent().getStringExtra("Name");
-        if (fullName != null){
+        if (user != null){
+            String fullName = user.getFullName();
+            userFullName.setText(fullName);
+        } else {
+            String fullName = getIntent().getStringExtra("Name");
             userFullName.setText(fullName);
         }
 
@@ -88,6 +99,7 @@ public class NavigationDrawer extends AppCompatActivity {
 
     private void signOut() {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+        sp.edit().putInt("userId", 0).apply();
         if (account != null){
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestEmail()
