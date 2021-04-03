@@ -2,15 +2,18 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FourthActivity extends AppCompatActivity {
-    final String TAG = "Concert Demo";
+    final String TAG = "MyFitness";
 
     List<ExerciseImage> ExerciseImageList = new ArrayList<>();
 
@@ -19,28 +22,45 @@ public class FourthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth);
 
-        try {
-            //get BodyPartImageLargePosition from the ThirdActivity
-            int BodyPartImageLargePosition= getIntent().getExtras().getInt("BodyPartKey");
+        //FindView
+        GridView gridViewExerciseGallery = findViewById(R.id.gridViewExerciseGallery);
 
-            //Call the AddDataToExerciseImageList to add the exercise base on the selected body parts
-            AddDataToExerciseImageList(BodyPartImageLargePosition);
+        //get BodyPartImageLargePosition from the ThirdActivity
+        int BodyPartImageLargePosition= getIntent().getExtras().getInt("BodyPartKey");
 
-            //FindView
-            GridView gridViewExerciseGallery = findViewById(R.id.gridViewExerciseGallery);
+        //Call the AddDataToExerciseImageList to add the exercise base on the selected body parts
+        AddDataToExerciseImageList(BodyPartImageLargePosition);
 
-            //Adapter
-            ExerciseImageAdapter myExerciseImageAdapter = new ExerciseImageAdapter(ExerciseImageList);
-            //Set the adapter to the gridView
-            gridViewExerciseGallery.setAdapter(myExerciseImageAdapter);
-            //set the layout for the gridView
-            gridViewExerciseGallery.setNumColumns(2);
-            gridViewExerciseGallery.setHorizontalSpacing(8);
-            gridViewExerciseGallery.setVerticalSpacing(8);
+        //Adapter
+        ExerciseImageAdapter myExerciseImageAdapter = new ExerciseImageAdapter(ExerciseImageList);
+        //Set the adapter to the gridView
+        gridViewExerciseGallery.setAdapter(myExerciseImageAdapter);
+        //set the layout for the gridView
+        gridViewExerciseGallery.setNumColumns(2);
+        gridViewExerciseGallery.setHorizontalSpacing(8);
+        gridViewExerciseGallery.setVerticalSpacing(8);
 
-        } catch (Exception exception){
-            Log.d(TAG,exception.getMessage()); //this displays as log msg the exception's object message
-        }
+        //ClickListener for the ExerciseGridView to go to the Fifth activity to display the content of that exercise
+        gridViewExerciseGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                try{
+                    Bundle bundle = new Bundle();
+                    int imgGridViewExerciseDrawableId= (Integer)ExerciseImageList.get(position).getImgPic();
+                    bundle.putInt("ExerciseKey", imgGridViewExerciseDrawableId);
+
+                    //start the fifth activity with the exercise you want to train
+                    Intent myFifthActivity = new Intent(FourthActivity.this, FifthActivity.class);
+                    myFifthActivity.putExtras(bundle);
+                    startActivity(myFifthActivity);
+
+                }catch (Exception exception){
+                    Log.d("My Fitness",exception.getMessage());
+                }
+
+
+            }
+        });
 
 
 

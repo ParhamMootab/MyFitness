@@ -40,4 +40,15 @@
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile Information</string>
     <string name="menu_workout">Workout plan</string>
+    <string name="CableKneelingCrunch">Instructions\n
+Preparation\n
+
+Kneel below high pulley. Grasp cable rope attachment with both hands. Place wrists against head. Position hips back and flex hips, allowing resistance on cable pulley to lift torso upward so spine is hyperextended.
+
+\nExecution\n
+
+With hips stationary, flex waist so elbows travel toward middle of thighs. Return and repeat.
+
+\nComments\n
+Note movement occurs in waist, not hips. See Spot Reduction Myth. Hyperextension of spine at top of motion is achieved by anterior rotation of pelvis with flexed hips.></string>
 </resources>
