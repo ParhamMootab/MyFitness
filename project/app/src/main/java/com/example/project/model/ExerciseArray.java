@@ -7,7 +7,7 @@ public class ExerciseArray {
 
 
     public static List<Exercise> dataList(){
-        List<Exercise> exerciseList = new ArrayList<Exercise>();
+        List<Exercise> exerciseList = new ArrayList<>();
 
         Exercise ex1 = new Exercise("Cable Rope Triceps Pushdown",
                 "1.) Start off standing in front of a cable machine, attaching a rope to the high pulley and grabbing the attachment with an overhand (palms down) grip." +
