@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
-<<<<<<< HEAD
+
         <activity
             android:name=".NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/Theme.Project.NoActionBar"></activity>
         <activity android:name=".FourthActivity" />
         <activity android:name=".ThirdActivity" />
-=======
+
         <activity android:name=".view.HomeActivity"></activity>
         <activity android:name=".view.FourthActivity" />
         <activity android:name=".view.ThirdActivity" />
->>>>>>> main
+
         <activity
             android:name=".view.BackgroundActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

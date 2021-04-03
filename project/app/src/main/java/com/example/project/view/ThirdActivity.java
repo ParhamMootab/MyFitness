@@ -91,7 +91,7 @@ public class ThirdActivity extends AppCompatActivity {
 
 
         //Set on Click for the gridView to display the chosen picture
-        gridViewBodyPartsGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* gridViewBodyPartsGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -134,7 +134,7 @@ public class ThirdActivity extends AppCompatActivity {
 
                         }*/
 
-            public void onClick(View v) {
+            /*public void onClick(View v) {
                 try {
                     Bundle bundle = new Bundle();
                     int imgViewBodyPartLargeDrawableID= (Integer)imgViewBodyPartLarge.getTag();
@@ -183,7 +183,7 @@ public class ThirdActivity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
 
     }

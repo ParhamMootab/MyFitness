@@ -15,7 +15,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.project.R;
-import com.example.project.ThirdActivity;
+
+import com.example.project.view.ThirdActivity;
 
 public class HomeFragment extends Fragment {
 
