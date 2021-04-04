@@ -53,7 +53,9 @@ public class ThirdActivity extends AppCompatActivity {
         TabItem workoutTab = findViewById(R.id.Workouts_Tab);
         TabItem dietTab = findViewById(R.id.Diets_Tab);
 
-        int index = tabLayout.getSelectedTabPosition();
+        tabLayout.getTabAt(0).select();
+        BodyPartsImageAdapter myBodyPartImageAdapter = new BodyPartsImageAdapter(BodyPartsImageList);
+        gridViewBodyPartsGallery.setAdapter(myBodyPartImageAdapter);
 
         //set the layout fro the gridView
         gridViewBodyPartsGallery.setNumColumns(3);
@@ -91,7 +93,7 @@ public class ThirdActivity extends AppCompatActivity {
 
 
         //Set on Click for the gridView to display the chosen picture
-       /* gridViewBodyPartsGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       gridViewBodyPartsGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -99,81 +101,20 @@ public class ThirdActivity extends AppCompatActivity {
                 try {
                 if (tabLayout.getSelectedTabPosition() == 1){
 
+                    bundle.putInt("tab", 1);
+                    bundle.putInt("item", position);
 
 
                 }else {
 
-                    /*int imgViewBodyPartLargeDrawableID= (Integer)imgViewBodyPartLarge.getTag();
+                    bundle.putInt("tab", 0);
+                    bundle.putInt("item", position);
 
-                        switch (imgViewBodyPartLargeDrawableID)
-                        {
-                            case R.drawable.abs:
-                                bundle.putInt("BodyPartKey", 0);
-                                break;
-                            case R.drawable.arm:
-                                bundle.putInt("BodyPartKey", 1);
-                                break;
-                            case R.drawable.back:
-                                bundle.putInt("BodyPartKey", 2);
-                                break;
-                            case R.drawable.chest:
-                                bundle.putInt("BodyPartKey", 3);
-                                break;
-                            case R.drawable.leg:
-                                bundle.putInt("BodyPartKey", 4);
-                                break;
-                            case R.drawable.lower:
-                                bundle.putInt("BodyPartKey", 5);
-                                break;
-                            case R.drawable.shoulder:
-                                bundle.putInt("BodyPartKey", 6);
-                                break;
-                            case R.drawable.upperbody:
-                                bundle.putInt("BodyPartKey", 7);
-                                break;
-
-                        }*/
-
-            /*public void onClick(View v) {
-                try {
-                    Bundle bundle = new Bundle();
-                    int imgViewBodyPartLargeDrawableID= (Integer)imgViewBodyPartLarge.getTag();
-                    switch (imgViewBodyPartLargeDrawableID)
-                    {
-                        case R.drawable.abs:
-                            bundle.putInt("BodyPartKey", 0);
-                            break;
-                        case R.drawable.arm:
-                            bundle.putInt("BodyPartKey", 1);
-                            break;
-                        case R.drawable.back:
-                            bundle.putInt("BodyPartKey", 2);
-                            break;
-                        case R.drawable.chest:
-                            bundle.putInt("BodyPartKey", 3);
-                            break;
-                        case R.drawable.leg:
-                            bundle.putInt("BodyPartKey", 4);
-                            break;
-                        case R.drawable.lower:
-                            bundle.putInt("BodyPartKey", 5);
-                            break;
-                        case R.drawable.shoulder:
-                            bundle.putInt("BodyPartKey", 6);
-                            break;
-                        case R.drawable.upperbody:
-                            bundle.putInt("BodyPartKey", 7);
-                            break;
-                        default:
-                            bundle.putInt("BodyPartKey", 1);
-                            break;
-                    }
-
+                }
                     //start another activity with that body parts
                     Intent myFourthActivity = new Intent(ThirdActivity.this, FourthActivity.class);
                     myFourthActivity.putExtras(bundle);
                     startActivity(myFourthActivity);
-                }
 
                 } catch (Exception exception){
                     currToast= Toast.makeText(ThirdActivity.this, "Please press on the picture of body parts you want to work on!", Toast.LENGTH_SHORT);
@@ -183,7 +124,7 @@ public class ThirdActivity extends AppCompatActivity {
 
 
             }
-        });*/
+        });
 
 
     }
