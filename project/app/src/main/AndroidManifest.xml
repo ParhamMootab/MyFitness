@@ -9,18 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
-
+        <activity android:name=".view.ProfileEdit"></activity>
         <activity
             android:name=".NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/Theme.Project.NoActionBar"></activity>
+            android:theme="@style/Theme.Project.NoActionBar" />
         <activity android:name=".FourthActivity" />
         <activity android:name=".ThirdActivity" />
-
-        <activity android:name=".view.HomeActivity"></activity>
+        <activity android:name=".view.HomeActivity" />
         <activity android:name=".view.FourthActivity" />
         <activity android:name=".view.ThirdActivity" />
-
         <activity
             android:name=".view.BackgroundActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
