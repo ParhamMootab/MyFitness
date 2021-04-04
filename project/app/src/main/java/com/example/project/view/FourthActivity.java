@@ -2,8 +2,11 @@ package com.example.project.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.project.model.ExerciseImage;
@@ -24,11 +27,11 @@ public class FourthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fourth);
 
         try {
-            //get BodyPartImageLargePosition from the ThirdActivity
-            int BodyPartImageLargePosition= getIntent().getExtras().getInt("BodyPartKey");
+            //get bodyPartsImagePicPosition from the ThirdActivity
+            int bodyPartsImagePicPosition= getIntent().getExtras().getInt("BodyPartKey");
 
             //Call the AddDataToExerciseImageList to add the exercise base on the selected body parts
-            AddDataToExerciseImageList(BodyPartImageLargePosition);
+            AddDataToExerciseImageList(bodyPartsImagePicPosition);
 
             //FindView
             GridView gridViewExerciseGallery = findViewById(R.id.gridViewExerciseGallery);
@@ -42,17 +45,42 @@ public class FourthActivity extends AppCompatActivity {
             gridViewExerciseGallery.setHorizontalSpacing(8);
             gridViewExerciseGallery.setVerticalSpacing(8);
 
+
+            //ClickListener for the ExerciseGridView to go to the Fifth activity to display the content of that exercise
+            gridViewExerciseGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    try{
+                        Bundle bundle = new Bundle();
+                        int imgGridViewExerciseDrawableId= (Integer)ExerciseImageList.get(position).getImgPic();
+                        bundle.putInt("ExerciseKey", imgGridViewExerciseDrawableId);
+
+                        //start the fifth activity with the exercise you want to train
+                        Intent myFifthActivity = new Intent(FourthActivity.this, ExerciseDescriptionActivity.class);
+                        myFifthActivity.putExtras(bundle);
+                        startActivity(myFifthActivity);
+
+                    }catch (Exception exception){
+                        Log.d("My Fitness",exception.getMessage());
+                    }
+
+
+                }
+            });
+
         } catch (Exception exception){
             Log.d(TAG,exception.getMessage()); //this displays as log msg the exception's object message
         }
 
 
 
+
+
     }
 
     //Adding data to the ExerciseImage object according to the BodyParts chosen
-    private void AddDataToExerciseImageList(int BodyPartImageLargePosition){
-        switch (BodyPartImageLargePosition){
+    private void AddDataToExerciseImageList(int bodyPartsImagePicPosition){
+        switch (bodyPartsImagePicPosition){
             case 0:
                 ExerciseImageList.add(new ExerciseImage("Cable Kneeling Crunch", R.drawable.cablekneelingcrunch));
                 ExerciseImageList.add(new ExerciseImage("Cable twist", R.drawable.cabletwist));
@@ -125,6 +153,10 @@ public class FourthActivity extends AppCompatActivity {
                 ExerciseImageList.add(new ExerciseImage("militarypress", R.drawable.militarypress));
                 ExerciseImageList.add(new ExerciseImage("tbarrow", R.drawable.tbarrow));
                 ExerciseImageList.add(new ExerciseImage("widelatpulldown", R.drawable.widelatpulldown));
+
+                break;
+            case 8:
+                ExerciseImageList.add(new ExerciseImage("Cardio", R.drawable.cardio));
 
                 break;
 
