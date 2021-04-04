@@ -112,6 +112,43 @@ public class ThirdActivity extends AppCompatActivity {
 
                     bundle.putInt("tab", 0);
                     bundle.putInt("item", position);
+
+                    try {
+                        int bodyPartsImagePicPosition = BodyPartsImageList.get(position).getImgPic();
+                        switch (bodyPartsImagePicPosition){
+                            case R.drawable.abs:
+                                bundle.putInt("BodyPartKey", 0);
+                                break;
+                            case R.drawable.arm:
+                                bundle.putInt("BodyPartKey", 1);
+                                break;
+                            case R.drawable.back:
+                                bundle.putInt("BodyPartKey", 2);
+                                break;
+                            case R.drawable.chest:
+                                bundle.putInt("BodyPartKey", 3);
+                                break;
+                            case R.drawable.leg:
+                                bundle.putInt("BodyPartKey", 4);
+                                break;
+                            case R.drawable.lower:
+                                bundle.putInt("BodyPartKey", 5);
+                                break;
+                            case R.drawable.shoulder:
+                                bundle.putInt("BodyPartKey", 6);
+                                break;
+                            case R.drawable.upperbody:
+                                bundle.putInt("BodyPartKey", 7);
+                                break;
+                            case R.drawable.cardio:
+                                bundle.putInt("BodyPartKey", 8);
+                                break;
+                        }
+                    }
+                    catch (Exception exception){
+                        Log.d("MyFitness",exception.getMessage());
+                    }
+
                     //start another activity with that body parts
                     Intent myFourthActivity = new Intent(ThirdActivity.this, FourthActivity.class);
                     myFourthActivity.putExtras(bundle);
