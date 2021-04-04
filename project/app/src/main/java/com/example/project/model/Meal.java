@@ -5,6 +5,22 @@ public class Meal {
     String name;
     String recipe;
     int image;
+    String recipeUrl;
+
+    public Meal(String name, String recipe, int image, String recipeUrl) {
+        this.name = name;
+        this.recipe = recipe;
+        this.image = image;
+        this.recipeUrl = recipeUrl;
+    }
+
+    public String getRecipeUrl() {
+        return recipeUrl;
+    }
+
+    public void setRecipeUrl(String recipeUrl) {
+        this.recipeUrl = recipeUrl;
+    }
 
     public String getName() {
         return name;
@@ -30,9 +46,5 @@ public class Meal {
         this.image = image;
     }
 
-    public Meal(String name, String recipe, int image) {
-        this.name = name;
-        this.recipe = recipe;
-        this.image = image;
-    }
+
 }

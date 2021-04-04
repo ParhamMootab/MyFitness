@@ -15,6 +15,7 @@ import android.widget.ImageView;
 
 import android.widget.TableLayout;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -95,27 +96,28 @@ public class ThirdActivity extends AppCompatActivity {
         //Set on Click for the gridView to display the chosen picture
        gridViewBodyPartsGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();
                 try {
                 if (tabLayout.getSelectedTabPosition() == 1){
 
-                    bundle.putInt("tab", 1);
-                    bundle.putInt("item", position);
+
+                    bundle.putInt( "index" , position);
+                    Intent mealDesc = new Intent(ThirdActivity.this, MealDescriptionActivity.class);
+                    mealDesc.putExtras(bundle);
+                    startActivity(mealDesc);
 
 
                 }else {
 
                     bundle.putInt("tab", 0);
                     bundle.putInt("item", position);
-
-                }
                     //start another activity with that body parts
                     Intent myFourthActivity = new Intent(ThirdActivity.this, FourthActivity.class);
                     myFourthActivity.putExtras(bundle);
                     startActivity(myFourthActivity);
 
+                }
                 } catch (Exception exception){
                     currToast= Toast.makeText(ThirdActivity.this, "Please press on the picture of body parts you want to work on!", Toast.LENGTH_SHORT);
                     currToast.show();

@@ -52,4 +52,5 @@
     <string name="txtTitleProfileEdit">Profile Edit</string>
     <string name="btnTextUpdateProfile">Update Profile</string>
     <string name="btnTextBackHome">Back to Home page</string>
+    <string name="browserBtn">Go to Recipe</string>
 </resources>

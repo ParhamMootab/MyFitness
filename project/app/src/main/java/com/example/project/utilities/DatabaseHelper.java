@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + columnHeight + " INTEGER)";
     public static String DeleteQuery = "DROP TABLE IF EXISTS " + tableName;
 
-    public static final String DATABASE_NAME = "MyDatabase.db";
+    public static final String DATABASE_NAME = "MyDatabase";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);

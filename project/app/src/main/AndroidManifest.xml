@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
-        <activity android:name=".view.ProfileEdit"></activity>
+        <activity android:name=".view.MealDescriptionActivity"></activity>
+        <activity android:name=".view.ProfileEdit" />
         <activity
             android:name=".NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
