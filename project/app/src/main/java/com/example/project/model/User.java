@@ -1,14 +1,14 @@
 package com.example.project.model;
 
 public class User {
-    private String ID;
+    private int ID;
     private String fullName;
     private String userName;
     private String password;
     private double weight;
     private int height;
 
-    public User(String ID, String fullName, String userName, String password, double weight, int height) {
+    public User(int ID, String fullName, String userName, String password, double weight, int height) {
         this.ID = ID;
         this.fullName = fullName;
         this.userName = userName;
@@ -25,11 +25,11 @@ public class User {
     public User() {
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 

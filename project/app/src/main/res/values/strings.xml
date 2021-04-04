@@ -45,4 +45,11 @@
     <string name="Workout_Tab">Workouts</string>
     <string name="Diet_Tab">Diets</string>
 
+    <string name="txtTitleProfileInfo">Profile Information</string>
+    <string name="txtFullNameLabel">Full Name</string>
+    <string name="txtWeightLabel">Weight</string>
+    <string name="txtHeightLabel">Height</string>
+    <string name="txtTitleProfileEdit">Profile Edit</string>
+    <string name="btnTextUpdateProfile">Update Profile</string>
+    <string name="btnTextBackHome">Back to Home page</string>
 </resources>

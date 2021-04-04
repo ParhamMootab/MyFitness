@@ -3,6 +3,7 @@ package com.example.project.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,11 +34,14 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper helper;
     public GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 1;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sp = getSharedPreferences("login", MODE_PRIVATE);
 
         userName = findViewById(R.id.etUserName);
         password = findViewById(R.id.etPassword);
@@ -59,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
         // Check for existing Google Sign In account, if the user is already signed in, open the next activity
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         updateUI(account);
+
+        // Check for existing internal app account, if the user is logged in, go to the next activity
+        if (sp.getInt("userId", 0) != 0){
+            Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
+            startActivity(intent);
+        }
 
         // Set the dimensions of the sign-in button.
         SignInButton signInButton = findViewById(R.id.sign_in_button);
@@ -97,8 +107,9 @@ public class MainActivity extends AppCompatActivity {
     // update the UI if the user is already signed in
     private void updateUI(GoogleSignInAccount account) {
         if (account != null){
+            sp.edit().putInt("userId", helper.RegisterIfNotExist(account)).apply();
             Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
-            intent.putExtra("Name", account.getGivenName());
+            intent.putExtra("Name", account.getGivenName() + " " + account.getFamilyName());
             startActivity(intent);
         }
     }
@@ -107,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
         User user = helper.authenticate(new User(userName, password));
         if(user != null){
             Toast.makeText(getApplicationContext(), "Login successfully.",Toast.LENGTH_SHORT).show();
+            sp.edit().putInt("userId", user.getID()).apply();
+
             Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
             intent.putExtra("Name", user.getFullName());
             startActivity(intent);
